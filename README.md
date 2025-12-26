@@ -139,6 +139,63 @@
 
 每次请求服务会从中挑选一个。
 
+## npm 安装
+
+本项目已发布为 npm 包，可通过以下方式快速安装运行：
+
+### 全局安装
+
+```shell
+# 全局安装
+npm install -g qwen-free-api-fix
+
+# 启动服务（默认监听 0.0.0.0:8000）
+qwen-free-api
+```
+
+### 使用 npx 临时运行
+
+```shell
+# 无需安装，直接运行
+npx qwen-free-api-fix
+```
+
+### 命令行参数
+
+```shell
+# 指定端口和主机
+qwen-free-api --port 3000 --host 127.0.0.1
+
+# 或使用环境变量
+SERVER_PORT=3000 SERVER_HOST=127.0.0.1 qwen-free-api
+```
+
+### 自定义配置文件
+
+如需自定义配置，可在当前工作目录下创建 `configs/dev/` 目录并放入配置文件：
+
+```shell
+# 创建配置目录
+mkdir -p configs/dev
+
+# 参考示例配置（安装后可在 node_modules/qwen-free-api-fix/configs-example/ 下找到）
+```
+
+**configs/dev/service.yml** 示例：
+```yaml
+name: qwen-free-api
+host: '0.0.0.0'
+port: 8000
+```
+
+**configs/dev/system.yml** 示例：
+```yaml
+requestLog: true
+tmpDir: ./tmp
+logDir: ./logs
+debug: false
+```
+
 ## Docker部署
 
 请准备一台具有公网IP的服务器并将8000端口开放。

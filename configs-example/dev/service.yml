@@ -1,0 +1,14 @@
+# Service name
+name: qwen-free-api
+
+# Server bind host address
+host: '0.0.0.0'
+
+# Server bind port
+port: 8000
+
+# URL prefix for routes (optional)
+# urlPrefix: '/api'
+
+# External bind address (optional, for display purposes)
+# bindAddress: 'https://your-domain.com'

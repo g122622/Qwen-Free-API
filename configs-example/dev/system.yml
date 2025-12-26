@@ -1,0 +1,23 @@
+# Enable request logging
+requestLog: true
+
+# Temporary directory path
+tmpDir: ./tmp
+
+# Log directory path
+logDir: ./logs
+
+# Log write interval (milliseconds)
+logWriteInterval: 200
+
+# Log file expiration time (milliseconds)
+logFileExpires: 2626560000
+
+# Public directory path (for static files)
+publicDir: ./public
+
+# Temporary file expiration time (milliseconds)
+tmpFileExpires: 86400000
+
+# Enable debug mode
+debug: false
