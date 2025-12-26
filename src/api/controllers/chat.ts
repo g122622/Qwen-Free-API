@@ -496,6 +496,10 @@ async function receiveStream(stream: any, model: string = DEFAULT_MODEL): Promis
       try {
         if (event.type !== "event") return;
         if (event.data == "[DONE]") return;
+        // 👇 新增：跳过心跳包
+        if (event.data === "[heartbeat]") {
+          return; // 心跳包，忽略
+        }
         // 解析JSON
         const result = _.attempt(() => JSON.parse(event.data));
         if (_.isError(result))
@@ -545,7 +549,6 @@ async function receiveStream(stream: any, model: string = DEFAULT_MODEL): Promis
     stream.on("data", (buffer) => parser.feed(buffer.toString()));
     stream.once("error", (err) => reject(err));
     stream.once("close", () => resolve(data));
-    stream.end();
   });
 }
 
@@ -584,6 +587,10 @@ function createTransStream(stream: any, model: string = DEFAULT_MODEL, endCallba
     try {
       if (event.type !== "event") return;
       if (event.data == "[DONE]") return;
+      // 👇 新增：跳过心跳包
+      if (event.data === "[heartbeat]") {
+        return; // 心跳包，忽略
+      }
       // 解析JSON
       const result = _.attempt(() => JSON.parse(event.data));
       if (_.isError(result))
@@ -685,6 +692,10 @@ async function receiveImages(
       try {
         if (event.type !== "event") return;
         if (event.data == "[DONE]") return;
+        // 👇 新增：跳过心跳包
+        if (event.data === "[heartbeat]") {
+          return; // 心跳包，忽略
+        }
         // 解析JSON
         const result = _.attempt(() => JSON.parse(event.data));
         if (_.isError(result))
