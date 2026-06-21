@@ -1,6 +1,6 @@
 {
   "name": "qwen-free-api-fix",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Qwen Free API Server",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
